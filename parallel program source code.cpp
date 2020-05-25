@@ -55,12 +55,12 @@ bool search_reverse_matrix(vector <vector<double>> &matrix)
 
 #pragma omp parallel
         {
-#pragma omp for
+
             for (int i = k + 1; i < size; i++)
             {
                 double multi = matrix[i][k];
 
-
+                #pragma omp for
                 for (int j = 0; j < size; j++)
                 {
                     matrix[i][j] -= multi * matrix[k][j];
